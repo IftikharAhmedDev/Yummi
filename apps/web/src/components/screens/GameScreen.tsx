@@ -194,7 +194,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
       return "timer-win";
     if (phase === "stopped") return "timer-loss";
     if (phase === "signal_react") return "timer-critical";
-    if (phase === "active" || phase === "signal_react")
+    if (phase === "active")
       return "timer-active";
     return "timer-idle";
   };

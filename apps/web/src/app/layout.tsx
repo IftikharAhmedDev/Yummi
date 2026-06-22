@@ -1,8 +1,9 @@
+import type { Viewport } from "next";
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CHRONOSTRIKE — Real-Time Multiplayer Precision Timer",
+  title: "YUMMI — Precision Timer",
   description:
     "Compete in precision timing challenges. Stop the timer, react to signals, hit precision windows. Skill-based competitive multiplayer for web and mobile.",
   keywords: [
