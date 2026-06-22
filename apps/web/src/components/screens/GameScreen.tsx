@@ -25,7 +25,7 @@ const generateRandomTarget = () => Math.random() * 8.999 + 1.0;
 const MOCK_PLAYERS = [
   {
     id: "1",
-    name: "NeonBlade",
+    name: "Timi",
     team: 1,
     status: "playing" as const,
     ping: 24,

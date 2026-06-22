@@ -7,7 +7,7 @@ interface LeaderboardScreenProps {
 }
 
 const MOCK_LEADERBOARD = [
-  { rank: 1, name: "NeonBlade", elo: 2150, winRate: 78.5, ping: 12 },
+  { rank: 1, name: "Timi", elo: 2150, winRate: 78.5, ping: 12 },
   { rank: 2, name: "CyberFox", elo: 2120, winRate: 75.2, ping: 25 },
   { rank: 3, name: "VoidRunner", elo: 2095, winRate: 73.8, ping: 15 },
   { rank: 4, name: "GlitchWave", elo: 2050, winRate: 71.4, ping: 32 },

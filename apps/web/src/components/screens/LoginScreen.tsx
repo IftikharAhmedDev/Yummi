@@ -48,17 +48,13 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         }}
       />
 
-      <div className="animate-scale-in mb-8 text-center">
-        <h1
-          className="yummi-title"
-          data-text="YUMMI"
-          style={{
-            fontSize: "clamp(2rem, 6vw, 3.5rem)",
-            letterSpacing: "0.15em",
-          }}
-        >
-          YUMMI
-        </h1>
+      <div className="animate-scale-in mb-8 flex justify-center">
+        <img
+          src="/logo.png"
+          alt="Yummi Logo"
+          className="w-40 h-40 sm:w-56 sm:h-56 object-contain"
+          style={{ filter: "drop-shadow(0 0 15px rgba(0,245,255,0.3))" }}
+        />
       </div>
 
       {/* Login Card */}

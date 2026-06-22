@@ -42,46 +42,13 @@ export function SplashScreen() {
           transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
         }}
       >
-        <div
-          className="flex items-center justify-center"
-          style={{
-            width: 100,
-            height: 100,
-            borderRadius: "24px",
-            border: "2px solid rgba(0,245,255,0.4)",
-            background:
-              "linear-gradient(135deg, rgba(0,245,255,0.1), rgba(168,85,247,0.1))",
-            boxShadow:
-              "0 0 30px rgba(0,245,255,0.2), inset 0 0 20px rgba(0,245,255,0.05)",
-          }}
-        >
-          <span
-            className="text-5xl font-bold"
-            style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--neon-cyan)",
-              textShadow: "0 0 20px rgba(0,245,255,0.5)",
-            }}
-          >
-            ⏱
-          </span>
-        </div>
+        <img
+          src="/logo.png"
+          alt="Yummi Logo"
+          className="w-48 h-48 sm:w-64 sm:h-64 object-contain animate-float"
+          style={{ filter: "drop-shadow(0 0 20px rgba(0,245,255,0.4))" }}
+        />
       </div>
-
-      {/* Title */}
-      <h1
-        className="yummi-title text-center mb-3"
-        data-text="YUMMI"
-        style={{
-          fontSize: "clamp(3.5rem, 12vw, 6rem)",
-          letterSpacing: "0.15em",
-          opacity: phase >= 2 ? 1 : 0,
-          transform: phase >= 2 ? "translateY(0)" : "translateY(20px)",
-          transition: "all 0.6s ease-out",
-        }}
-      >
-        YUMMI
-      </h1>
 
       {/* Tagline */}
       <p

@@ -10,7 +10,7 @@ interface ResultsScreenProps {
 const MOCK_RESULTS = [
   {
     rank: 1,
-    name: "NeonBlade",
+    name: "Timi",
     score: 480,
     avgDiff: 12.4,
     bestRound: 3.2,

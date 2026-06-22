@@ -9,7 +9,7 @@ interface RoomScreenProps {
 }
 
 const MOCK_ROOM_PLAYERS = [
-  { id: "1", name: "NeonBlade", team: 1, status: "ready" as const, ping: 24, score: 0 },
+  { id: "1", name: "Timi", team: 1, status: "ready" as const, ping: 24, score: 0 },
   { id: "2", name: "CyberFox", team: 2, status: "ready" as const, ping: 48, score: 0 },
   { id: "3", name: "VoidRunner", team: 1, status: "ready" as const, ping: 15, score: 0 },
 ];

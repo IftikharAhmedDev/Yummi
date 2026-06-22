@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     description: "A fast-paced, cyber-neon competitive timing game.",
     type: "website",
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export const viewport: Viewport = {

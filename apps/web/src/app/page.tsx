@@ -32,8 +32,8 @@ export type Screen =
 // Mock user for demo
 const MOCK_USER = {
   id: "usr_001",
-  username: "NeonBlade",
-  displayName: "NeonBlade",
+  username: "Timi",
+  displayName: "Timi",
   avatarUrl: "",
   level: 42,
   xp: 7850,
