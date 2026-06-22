@@ -1,0 +1,129 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export function SplashScreen() {
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setPhase(1), 300);
+    const t2 = setTimeout(() => setPhase(2), 800);
+    const t3 = setTimeout(() => setPhase(3), 1500);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
+  }, []);
+
+  return (
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[var(--bg-deep)] z-[100]">
+      {/* Background glow */}
+      <div
+        className="absolute"
+        style={{
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(0,245,255,0.12) 0%, rgba(168,85,247,0.06) 50%, transparent 70%)",
+          filter: "blur(60px)",
+          opacity: phase >= 1 ? 1 : 0,
+          transition: "opacity 1s ease-out",
+        }}
+      />
+
+      {/* Logo mark */}
+      <div
+        className="relative mb-6"
+        style={{
+          opacity: phase >= 1 ? 1 : 0,
+          transform: phase >= 1 ? "scale(1)" : "scale(0.5)",
+          transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        }}
+      >
+        <div
+          className="flex items-center justify-center"
+          style={{
+            width: 100,
+            height: 100,
+            borderRadius: "24px",
+            border: "2px solid rgba(0,245,255,0.4)",
+            background:
+              "linear-gradient(135deg, rgba(0,245,255,0.1), rgba(168,85,247,0.1))",
+            boxShadow:
+              "0 0 30px rgba(0,245,255,0.2), inset 0 0 20px rgba(0,245,255,0.05)",
+          }}
+        >
+          <span
+            className="text-5xl font-bold"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--neon-cyan)",
+              textShadow: "0 0 20px rgba(0,245,255,0.5)",
+            }}
+          >
+            ⏱
+          </span>
+        </div>
+      </div>
+
+      {/* Title */}
+      <h1
+        className="yummi-title text-center mb-3"
+        data-text="YUMMI"
+        style={{
+          fontSize: "clamp(3.5rem, 12vw, 6rem)",
+          letterSpacing: "0.15em",
+          opacity: phase >= 2 ? 1 : 0,
+          transform: phase >= 2 ? "translateY(0)" : "translateY(20px)",
+          transition: "all 0.6s ease-out",
+        }}
+      >
+        YUMMI
+      </h1>
+
+      {/* Tagline */}
+      <p
+        className="text-center"
+        style={{
+          fontFamily: "var(--font-heading)",
+          fontSize: "1rem",
+          letterSpacing: "0.15em",
+          color: "var(--text-secondary)",
+          opacity: phase >= 3 ? 1 : 0,
+          transform: phase >= 3 ? "translateY(0)" : "translateY(10px)",
+          transition: "all 0.5s ease-out",
+        }}
+      >
+        PRECISION IS EVERYTHING
+      </p>
+
+      {/* Loading bar */}
+      <div
+        className="mt-12"
+        style={{
+          width: 200,
+          height: 2,
+          background: "rgba(255,255,255,0.05)",
+          borderRadius: 999,
+          overflow: "hidden",
+          opacity: phase >= 3 ? 1 : 0,
+          transition: "opacity 0.5s ease-out",
+        }}
+      >
+        <div
+          style={{
+            width: phase >= 3 ? "100%" : "0%",
+            height: "100%",
+            background:
+              "linear-gradient(90deg, var(--neon-cyan), var(--neon-purple))",
+            borderRadius: 999,
+            boxShadow: "0 0 10px rgba(0,245,255,0.5)",
+            transition: "width 1.5s ease-in-out",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
