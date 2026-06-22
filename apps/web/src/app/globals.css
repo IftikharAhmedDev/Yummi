@@ -37,9 +37,9 @@
   --bg-surface: #232A3A;
 
   /* ── Text Colors ── */
-  --text-primary: #F0F2F5;
-  --text-secondary: #B0B8C7;
-  --text-muted: #8492A6;
+  --text-primary: #FFFFFF;
+  --text-secondary: #F1F5F9;
+  --text-muted: #E2E8F0;
   --text-accent: var(--neon-cyan);
 
   /* ── Glassmorphism ── */
