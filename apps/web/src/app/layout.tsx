@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
