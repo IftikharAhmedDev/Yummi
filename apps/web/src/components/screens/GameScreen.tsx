@@ -20,6 +20,8 @@ interface GameScreenProps {
   onBack: () => void;
 }
 
+const generateRandomTarget = () => Math.random() * 8.999 + 1.0;
+
 const MOCK_PLAYERS = [
   {
     id: "1",
@@ -61,7 +63,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
   const [round, setRound] = useState(1);
   const [totalRounds] = useState(5);
   const [timerValue, setTimerValue] = useState(0);
-  const [targetValue] = useState(2.0);
+  const [targetValue, setTargetValue] = useState(generateRandomTarget());
   const [countdown, setCountdown] = useState(3);
   const [difference, setDifference] = useState<number | null>(null);
   const [reactionSignal, setReactionSignal] = useState(false);
@@ -173,6 +175,9 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
         setRound((r) => r + 1);
         setPhase("waiting");
         addEvent(`📋 Round ${round + 1} of ${totalRounds}`);
+        if (mode === "target" || mode === "blind_target") {
+          setTargetValue(generateRandomTarget());
+        }
       } else {
         addEvent("🏁 Match complete!");
         setTimeout(onEnd, 1500);
