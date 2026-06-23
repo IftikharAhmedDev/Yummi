@@ -46,8 +46,8 @@ export function QueueScreen({ onMatchFound, onCancel }: QueueScreenProps) {
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000"
         style={{
-          width: matchFound ? 800 : 400,
-          height: matchFound ? 800 : 400,
+          width: matchFound ? "min(800px, 90vw)" : "min(400px, 80vw)",
+          height: matchFound ? "min(800px, 90vw)" : "min(400px, 80vw)",
           borderRadius: "50%",
           background: matchFound
             ? "radial-gradient(circle, rgba(0,245,255,0.1) 0%, transparent 70%)"
@@ -60,7 +60,7 @@ export function QueueScreen({ onMatchFound, onCancel }: QueueScreenProps) {
       <div className="z-10 flex flex-col items-center text-center animate-scale-in">
         {!matchFound ? (
           <>
-            <div className="relative w-48 h-48 mb-8 flex items-center justify-center">
+            <div className="relative w-32 h-32 sm:w-48 sm:h-48 mb-8 flex items-center justify-center">
               {/* Spinning rings */}
               <div className="absolute inset-0 rounded-full border-2 border-[rgba(168,85,247,0.2)] border-t-[var(--neon-purple)] animate-[spin_3s_linear_infinite]" />
               <div className="absolute inset-4 rounded-full border-2 border-[rgba(0,245,255,0.2)] border-b-[var(--neon-cyan)] animate-[spin_2s_linear_infinite_reverse]" />
@@ -86,7 +86,7 @@ export function QueueScreen({ onMatchFound, onCancel }: QueueScreenProps) {
               Target • 1v1
             </p>
 
-            <div className="flex gap-8 mb-12">
+            <div className="flex gap-6 sm:gap-8 mb-12">
               <div>
                 <p className="text-[var(--text-muted)] text-xs uppercase tracking-widest font-['var(--font-heading)'] mb-1">
                   Elapsed
@@ -111,7 +111,7 @@ export function QueueScreen({ onMatchFound, onCancel }: QueueScreenProps) {
           </>
         ) : (
           <>
-            <div className="relative w-48 h-48 mb-8 flex items-center justify-center animate-[scale-in_0.5s_cubic-bezier(0.34,1.56,0.64,1)]">
+            <div className="relative w-32 h-32 sm:w-48 sm:h-48 mb-8 flex items-center justify-center animate-[scale-in_0.5s_cubic-bezier(0.34,1.56,0.64,1)]">
               <div className="absolute inset-0 rounded-full bg-[var(--neon-cyan)] blur-[40px] opacity-30 animate-pulse" />
               <div className="absolute inset-0 rounded-full border-4 border-[var(--neon-cyan)] shadow-[0_0_30px_rgba(0,245,255,0.5)]" />
               <div className="absolute inset-4 rounded-full bg-[rgba(0,245,255,0.1)] backdrop-blur-md flex items-center justify-center">
@@ -123,7 +123,7 @@ export function QueueScreen({ onMatchFound, onCancel }: QueueScreenProps) {
               className="mb-2"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "2.5rem",
+                fontSize: "clamp(1.5rem, 6vw, 2.5rem)",
                 fontWeight: 900,
                 letterSpacing: "0.1em",
                 color: "var(--neon-cyan)",

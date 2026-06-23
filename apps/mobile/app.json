@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Yummi Timer",
+    "slug": "yummi-timer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "yummi-timer",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yummi.timer"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0B14",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.yummi.timer",
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": ["expo-router"]
+  }
+}

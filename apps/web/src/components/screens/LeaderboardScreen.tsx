@@ -19,7 +19,7 @@ const MOCK_LEADERBOARD = [
 
 export function LeaderboardScreen({ onBack }: LeaderboardScreenProps) {
   return (
-    <div className="min-h-screen pb-32 px-6 sm:px-8 pt-10 md:pt-14 max-w-5xl mx-auto w-full">
+    <div className="min-h-screen pb-32 px-4 sm:px-6 md:px-8 pt-10 md:pt-14 max-w-5xl mx-auto w-full">
       <header className="flex items-center gap-4 mb-8 animate-slide-down">
         <button
           onClick={onBack}
@@ -65,7 +65,7 @@ export function LeaderboardScreen({ onBack }: LeaderboardScreenProps) {
         <div
           className="grid gap-4 px-6 py-3 bg-[rgba(255,255,255,0.02)] border-b border-[rgba(255,255,255,0.05)]"
           style={{
-            gridTemplateColumns: "50px 1fr 80px 80px",
+            gridTemplateColumns: "40px 1fr 70px 60px",
             fontFamily: "var(--font-heading)",
             fontSize: "0.7rem",
             fontWeight: 600,
@@ -85,9 +85,9 @@ export function LeaderboardScreen({ onBack }: LeaderboardScreenProps) {
           {MOCK_LEADERBOARD.map((player, index) => (
             <div
               key={player.rank}
-              className="grid gap-4 px-6 py-4 transition-colors hover:bg-[rgba(0,245,255,0.03)] border-b border-[rgba(255,255,255,0.02)]"
+              className="grid gap-3 sm:gap-4 px-4 sm:px-6 py-4 transition-colors hover:bg-[rgba(0,245,255,0.03)] border-b border-[rgba(255,255,255,0.02)]"
               style={{
-                gridTemplateColumns: "50px 1fr 80px 80px",
+                gridTemplateColumns: "40px 1fr 70px 60px",
                 alignItems: "center",
                 animationDelay: `${index * 50}ms`,
               }}

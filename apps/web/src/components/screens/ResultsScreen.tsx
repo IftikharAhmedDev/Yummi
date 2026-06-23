@@ -51,7 +51,7 @@ export function ResultsScreen({ onPlayAgain, onHome }: ResultsScreenProps) {
   const youWon = winner.isYou;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center px-3 sm:px-4 py-12 relative overflow-hidden">
       {/* Background effect */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -135,7 +135,7 @@ export function ResultsScreen({ onPlayAgain, onHome }: ResultsScreenProps) {
         <div
           className="grid gap-4 px-6 py-3"
           style={{
-            gridTemplateColumns: "50px 1fr 80px 80px 70px",
+            gridTemplateColumns: "40px 1fr 60px 65px 55px",
             fontFamily: "var(--font-heading)",
             fontSize: "0.7rem",
             fontWeight: 600,
@@ -156,9 +156,9 @@ export function ResultsScreen({ onPlayAgain, onHome }: ResultsScreenProps) {
         {MOCK_RESULTS.map((player) => (
           <div
             key={player.rank}
-            className="grid gap-4 px-6 py-4 transition-colors"
+            className="grid gap-2 sm:gap-4 px-3 sm:px-6 py-4 transition-colors"
             style={{
-              gridTemplateColumns: "50px 1fr 80px 80px 70px",
+              gridTemplateColumns: "40px 1fr 60px 65px 55px",
               alignItems: "center",
               background: player.isYou
                 ? "rgba(0,245,255,0.03)"

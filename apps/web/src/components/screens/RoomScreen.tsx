@@ -16,7 +16,7 @@ const MOCK_ROOM_PLAYERS = [
 
 export function RoomScreen({ onStart, onBack }: RoomScreenProps) {
   return (
-    <div className="min-h-screen pb-32 px-6 sm:px-8 pt-10 md:pt-14 max-w-5xl mx-auto w-full flex flex-col">
+    <div className="min-h-screen pb-32 px-4 sm:px-6 md:px-8 pt-10 md:pt-14 max-w-5xl mx-auto w-full flex flex-col">
       <header className="flex items-center justify-between mb-8 animate-slide-down">
         <div className="flex items-center gap-4">
           <button
@@ -77,7 +77,7 @@ export function RoomScreen({ onStart, onBack }: RoomScreenProps) {
               </div>
               <div>
                 <label className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-1 block">Target Range</label>
-                <div className="glass-card px-3 py-2 text-sm text-[var(--neon-yellow)]">1.0s - 3.0s</div>
+                <div className="glass-card px-3 py-2 text-sm text-[var(--neon-yellow)]">1:00s - 3:00s</div>
               </div>
             </div>
             

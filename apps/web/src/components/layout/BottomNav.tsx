@@ -26,7 +26,7 @@ export function BottomNav({ activeScreen, onNavigate }: BottomNavProps) {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="flex items-center justify-between px-4 py-3">
+      <div className="flex items-center justify-between px-2 sm:px-4 py-3">
         {NAV_ITEMS.map((item) => {
           const isActive = activeScreen === item.id;
           return (
@@ -35,7 +35,7 @@ export function BottomNav({ activeScreen, onNavigate }: BottomNavProps) {
               id={`nav-${item.id}`}
               onClick={() => onNavigate(item.id)}
               className={`nav-item ${isActive ? "nav-item-active" : ""}`}
-              style={{ minWidth: 56 }}
+              style={{ minWidth: 44 }}
             >
               <span
                 className="text-xl transition-transform"

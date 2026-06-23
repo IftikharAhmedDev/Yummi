@@ -30,8 +30,8 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
       <div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
-          width: 600,
-          height: 600,
+          width: "min(600px, 90vw)",
+          height: "min(600px, 90vw)",
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(0,245,255,0.06) 0%, rgba(168,85,247,0.04) 40%, transparent 70%)",

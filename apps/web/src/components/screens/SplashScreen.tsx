@@ -22,8 +22,8 @@ export function SplashScreen() {
       <div
         className="absolute"
         style={{
-          width: 500,
-          height: 500,
+          width: "min(500px, 90vw)",
+          height: "min(500px, 90vw)",
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(0,245,255,0.12) 0%, rgba(168,85,247,0.06) 50%, transparent 70%)",

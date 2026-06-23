@@ -145,13 +145,13 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
       const diff = Math.abs(finalTime - targetValue) * 1000;
       setDifference(diff);
       addEvent(
-        `👁️ Stopped at ${finalTime.toFixed(3)}s (${diff.toFixed(1)}ms off)`
+        `👁️ Stopped at ${finalTime.toFixed(2).replace(".", ":")}s (${(diff / 1000).toFixed(2).replace(".", ":")}s off)`
       );
     } else if (mode === "reaction") {
       const reactionMs = finalTime * 1000;
       setDifference(reactionMs);
       setReactionSignal(false);
-      addEvent(`⚡ Reaction: ${reactionMs.toFixed(1)}ms`);
+      addEvent(`⚡ Reaction: ${(reactionMs / 1000).toFixed(2).replace(".", ":")}s`);
     } else {
       const inWindow =
         finalTime >= precisionWindow.start &&
@@ -162,8 +162,8 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
       setDifference(diff);
       addEvent(
         inWindow
-          ? `💎 In window! ${diff.toFixed(1)}ms from center`
-          : `❌ Outside window by ${diff.toFixed(1)}ms`
+          ? `💎 In window! ${(diff / 1000).toFixed(2).replace(".", ":")}s from center`
+          : `❌ Outside window by ${(diff / 1000).toFixed(2).replace(".", ":")}s`
       );
     }
 
@@ -213,20 +213,18 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
   };
 
   const formatTimer = (val: number) => {
-    const seconds = Math.floor(val);
-    const ms = Math.floor((val - seconds) * 1000);
-    return `${seconds}.${ms.toString().padStart(3, "0")}`;
+    return val.toFixed(2).replace(".", ":");
   };
 
   return (
-    <div className="hud-container relative">
+    <div className="hud-container relative" style={{ overflow: "hidden" }}>
       {/* ── Header Bar ── */}
-      <div className="hud-header flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="hud-header flex flex-wrap items-center justify-between gap-2 min-w-0 w-full">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button
             id="game-back"
             onClick={onBack}
-            className="glass-card px-3 py-2 text-sm cursor-pointer"
+            className="glass-card px-2 sm:px-3 py-1.5 sm:py-2 text-sm cursor-pointer"
             style={{
               fontFamily: "var(--font-heading)",
               color: "var(--text-secondary)",
@@ -269,7 +267,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Round indicator */}
           <div
             style={{
@@ -280,7 +278,8 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
               color: "var(--text-secondary)",
             }}
           >
-            ROUND{" "}
+            <span className="hidden sm:inline">ROUND </span>
+            <span className="sm:hidden">R</span>
             <span style={{ color: "var(--neon-cyan)" }}>
               {round}
             </span>
@@ -326,7 +325,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
       </div>
 
       {/* ── Center: Timer & Game Area ── */}
-      <div className="hud-center flex flex-col items-center justify-center relative">
+      <div className="hud-center flex flex-col items-center justify-center relative px-2 sm:px-0 min-w-0 w-full">
         {/* Countdown overlay */}
         {phase === "countdown" && (
           <div className="countdown-overlay">
@@ -403,7 +402,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
                 textAlign: "center",
               }}
             >
-              {targetValue.toFixed(3)}s
+              {targetValue.toFixed(2).replace(".", ":")}s
             </p>
           </div>
         )}
@@ -434,8 +433,8 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
                 textAlign: "center",
               }}
             >
-              {precisionWindow.start.toFixed(3)}s –{" "}
-              {precisionWindow.end.toFixed(3)}s
+              {precisionWindow.start.toFixed(2).replace(".", ":")}s –{" "}
+              {precisionWindow.end.toFixed(2).replace(".", ":")}s
             </p>
           </div>
         )}
@@ -496,7 +495,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
                 textAlign: "center",
               }}
             >
-              {difference.toFixed(1)}ms
+              {formatTimer(difference / 1000)}s
             </p>
             {difference < 10 && (
               <p
@@ -518,7 +517,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
 
         {/* Precision progress bar */}
         {mode === "precision" && (phase === "active" || phase === "stopped") && (
-          <div className="w-full max-w-md mt-8 px-4">
+          <div className="w-full max-w-md mt-8 px-2 sm:px-4">
             <div
               className="relative h-2 rounded-full overflow-hidden"
               style={{ background: "rgba(255,255,255,0.05)" }}
@@ -554,7 +553,7 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
         )}
 
         {/* Action Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 w-full max-w-md px-4">
+        <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md px-2 sm:px-4">
           {phase === "waiting" && (
             <NeonButton
               id="btn-start"
@@ -655,9 +654,9 @@ export function GameScreen({ onEnd, onBack }: GameScreenProps) {
       </div>
 
       {/* ── Footer: Mobile action area ── */}
-      <div className="hud-footer flex items-center justify-between">
+      <div className="hud-footer flex items-center justify-between px-1 sm:px-0 min-w-0 w-full">
         {/* Mobile players toggle */}
-        <div className="lg:hidden flex items-center gap-2 overflow-x-auto pb-2">
+        <div className="lg:hidden flex items-center gap-2 overflow-x-auto pb-2 w-full no-scrollbar">
           {MOCK_PLAYERS.map((p) => (
             <div
               key={p.id}

@@ -63,7 +63,7 @@ export function HomeScreen({ user, onNavigate }: HomeScreenProps) {
   const [selectedMatch, setSelectedMatch] = useState("1v1");
 
   return (
-    <div className="min-h-screen pb-32 px-6 sm:px-8 pt-10 md:pt-14 max-w-5xl mx-auto w-full">
+    <div className="min-h-screen pb-32 px-4 sm:px-6 md:px-8 pt-10 md:pt-14 max-w-5xl mx-auto w-full">
       {/* Header */}
       <header className="flex items-center justify-between mb-8 animate-slide-down">
         <div>

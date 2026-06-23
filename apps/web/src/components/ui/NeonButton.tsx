@@ -25,7 +25,7 @@ const VARIANT_CLASSES: Record<Variant, string> = {
 const SIZE_STYLES: Record<string, React.CSSProperties> = {
   sm: { padding: "8px 18px", fontSize: "0.8rem" },
   md: { padding: "14px 32px", fontSize: "1rem" },
-  lg: { padding: "18px 48px", fontSize: "1.1rem" },
+  lg: { padding: "18px 32px", fontSize: "1.1rem" },
 };
 
 export function NeonButton({
